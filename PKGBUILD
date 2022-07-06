@@ -6,7 +6,7 @@ _distro="archlinux"
 _pkgbase="${_pkg}-profiles"
 _profile=ereleng
 pkgname="${_distro}"
-pkgver=v0.1+11+g1afb2fc
+pkgver="$(date +%Y.%m.%d)"
 pkgrel=1
 pkgdesc='Builds an Archlinux install drive.'
 arch=('any')
@@ -21,11 +21,6 @@ makedepends=('devtools' 'git')
 checkdepends=('shellcheck')
 source=("git+${url}")
 sha256sums=('SKIP')
-
-pkgver() {
-  cd "archiso-profiles" || exit
-  git describe --tags | sed 's/-/+/g'
-}
 
 # shellcheck disable=SC2154
 package() {
