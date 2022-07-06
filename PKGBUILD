@@ -17,6 +17,7 @@ depends=('archiso-persistent-git'
 	 'fakepkg'
 	 'mkinitcpio-archiso-encryption-git'
          'polkit')
+provides=("${_distro}-${profile}")
 makedepends=('devtools' 'git')
 checkdepends=('shellcheck')
 source=("git+${url}")
