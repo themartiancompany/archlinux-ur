@@ -1,6 +1,6 @@
 pkgbase = archlinux
 	pkgdesc = Builds an Archlinux install drive.
-	pkgver = v0.1+11+g1afb2fc
+	pkgver = 2022.07.06
 	pkgrel = 1
 	url = https://gitlab.archlinux.org/tallero/archiso-profiles
 	arch = any
