@@ -30,7 +30,7 @@ package() {
   cd "${_profile}" || exit
 
   mkdir -p work
-  ./build_repo.sh fakepkg
+  ../.gitlab/ci/build_repo.sh fakepkg
   install -d -m 0755 -- "${_dest}"
   pkexec mkarchiso -v \
 	           -o "${_dest}" \
