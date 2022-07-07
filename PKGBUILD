@@ -4,7 +4,7 @@
 _pkg="archiso"
 _distro="archlinux"
 _pkgbase="${_pkg}-profiles"
-_profile=ereleng
+profile="ereleng"
 pkgname="${_distro}"
 pkgver="$(date +%Y.%m.%d)"
 pkgrel=1
@@ -18,19 +18,19 @@ depends=('archiso-persistent-git'
 	 'mkinitcpio-archiso-encryption-git'
          'polkit')
 provides=("${_distro}-${profile}")
-makedepends=('devtools' 'git')
+makedepends=("devtools" "git" "${_pkgbase}-git")
 checkdepends=('shellcheck')
-source=("git+${url}")
 sha256sums=('SKIP')
 
 # shellcheck disable=SC2154
 package() {
   local _dest="${pkgdir}/usr/share/${_distro}"
-  local _profile="${srcdir}/${_pkgbase}/${_profile}"
+  local _profile="${srcdir}/${_pkgbase}/${profile}"
+  local _build_repo="${srcdir}/${_pkgbase}/.gitlab/ci/build_repo.sh"
+  cp -r "/usr/share/archiso-profiles/${profile}" "${_profile}"
   cd "${_profile}" || exit
-
   mkdir -p work
-  ../.gitlab/ci/build_repo.sh fakepkg
+  "${_build_repo} fakepkg"
   install -d -m 0755 -- "${_dest}"
   pkexec mkarchiso -v \
 	           -o "${_dest}" \
