@@ -20,7 +20,6 @@ depends=('archiso-persistent-git'
 provides=("${_distro}-${profile}")
 makedepends=("devtools" "git" "${_pkgbase}-git")
 checkdepends=('shellcheck')
-sha256sums=('SKIP')
 
 # shellcheck disable=SC2154
 package() {
