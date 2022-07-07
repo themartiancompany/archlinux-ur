@@ -15,6 +15,5 @@ pkgbase = archlinux
 	depends = mkinitcpio-archiso-encryption-git
 	depends = polkit
 	provides = archlinux-ereleng
-	sha256sums = SKIP
 
 pkgname = archlinux
