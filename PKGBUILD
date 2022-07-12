@@ -43,5 +43,5 @@ package() {
 	           -o "${_dest}" \
 		   -w "${_profile}/work" \
                       "${_profile}"
-  mv "${_dest}/{_iso}" "${_dest}/${pkgname}-x86_64.iso"
+  mv "${_dest}/${_iso}" "${_dest}/${pkgname}-x86_64.iso"
 }
