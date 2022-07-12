@@ -31,6 +31,7 @@ package() {
   local _pkg_lib_path="/usr/lib/${_pkg}"
   local _dest="${pkgdir}/usr/share/${_distro}"
   local _iso="${pkgname}-${pkgver}-x86_64.iso"
+  local _keys_iso="${pkgname}-keys-${pkgver}-x86_64.iso"
   local _profile_src="${_pkg_path}/configs/${profile}"
   local _profile="${srcdir}/${profile}"
   cp -r "${_profile_src}" "${_profile}"
@@ -43,4 +44,5 @@ package() {
 		   -w "${_profile}/work" \
                       "${_profile}"
   mv "${_dest}/${_iso}" "${_dest}/${pkgname}-x86_64.iso"
+  mv "${_dest}/${keys_iso}" "${_dest}/${pkgname}-keys-x86_64.iso"
 }
