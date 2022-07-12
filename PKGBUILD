@@ -28,14 +28,16 @@ checkdepends=('shellcheck')
 
 # shellcheck disable=SC2154
 package() {
-  local _dest="${pkgdir}/usr/share/${_distro}"
+  local _pkg_path="/usr/share/${_pkg}"
+  local _pkg_lib_path="/usr/lib/${_pkg}"
+  local _dest="${pkgdir}/${_pkg_path}"
   local _iso="${pkgname}-${pkgver}-x86_64.iso"
   local _profile="${srcdir}/${profile}"
-  local _build_repo="${srcdir}/${_pkgbase}/.gitlab/ci/build_repo.sh"
-  cp -r "/usr/share/${_pkgbase}/${profile}" "${_profile}"
+  local _build_repo="${_pkg_lib_path}/build_repo.sh"
+  cp -r "${_pkg_path}/configs/${profile}" "${_profile}"
   cd "${_profile}" || exit
   mkdir -p work
-  "${_build_repo} fakepkg"
+  mkarchisorepo "fakepkg" "packages.extra"
   install -d -m 0755 -- "${_dest}"
   pkexec mkarchiso -v \
 	           -o "${_dest}" \
