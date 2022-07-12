@@ -25,14 +25,12 @@ makedepends=("${_pkg}-${_variant}-git"
              "${_pkgbase}-git"
              "polkit")
 checkdepends=('shellcheck')
-source=("git+${url}")
-sha256sums=('SKIP')
 
 # shellcheck disable=SC2154
 package() {
   local _dest="${pkgdir}/usr/share/${_distro}"
   local _iso="${pkgname}-${pkgver}-x86_64.iso"
-  local _profile="${srcdir}/${_pkgbase}/${profile}"
+  local _profile="${srcdir}/${profile}"
   local _build_repo="${srcdir}/${_pkgbase}/.gitlab/ci/build_repo.sh"
   cp -r "/usr/share/${_pkgbase}/${profile}" "${_profile}"
   cd "${_profile}" || exit
