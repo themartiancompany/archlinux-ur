@@ -30,7 +30,7 @@ checkdepends=('shellcheck')
 package() {
   local _pkg_path="/usr/share/${_pkg}"
   local _pkg_lib_path="/usr/lib/${_pkg}"
-  local _dest="${pkgdir}/${_pkg_path}"
+  local _dest="${pkgdir}/usr/share/${_distro}"
   local _iso="${pkgname}-${pkgver}-x86_64.iso"
   local _profile="${srcdir}/${profile}"
   local _build_repo="${_pkg_lib_path}/build_repo.sh"
