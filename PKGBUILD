@@ -9,20 +9,19 @@ profile="ereleng"
 pkgname="${_distro}"
 pkgver="$(date +%Y.%m.%d)"
 pkgrel=1
-pkgdesc="Builds an Archlinux install drive."
+pkgdesc="Builds the Arch Linux install drive."
 arch=('i686'
       'pentium4'
       'x86_64')
 license=('AGPL3')
-url="https://gitlab.${_distro}.org/tallero/${_pkgbase}"
+url="https://gitlab.archlinux.org/archlinux/archiso/-/issues/156"
 provides=("${_distro}-${profile}")
 makedepends=("${_pkg}-${_variant}-git"
+             "${_pkgbase}-git"
              "cryptsetup-nested-cryptkey"
-             # "devtools"
              "fakepkg"
              "git"
              "mkinitcpio-${_pkg}-encryption"
-             "${_pkgbase}-git"
              "polkit")
 checkdepends=('shellcheck')
 
@@ -32,9 +31,9 @@ package() {
   local _pkg_lib_path="/usr/lib/${_pkg}"
   local _dest="${pkgdir}/usr/share/${_distro}"
   local _iso="${pkgname}-${pkgver}-x86_64.iso"
+  local _profile_src="${_pkg_path}/configs/${profile}"
   local _profile="${srcdir}/${profile}"
-  local _build_repo="${_pkg_lib_path}/build_repo.sh"
-  cp -r "${_pkg_path}/configs/${profile}" "${_profile}"
+  cp -r "${_profile_src}" "${_profile}"
   cd "${_profile}" || exit
   mkdir -p work
   mkarchisorepo "fakepkg" "packages.extra"
