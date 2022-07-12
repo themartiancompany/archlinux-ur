@@ -12,11 +12,9 @@ pkgbase = archlinux
 	makedepends = cryptsetup-nested-cryptkey
 	makedepends = fakepkg
 	makedepends = git
-	makedepends = mkinitcpio-archiso-encryption-git
+	makedepends = mkinitcpio-archiso-encryption
 	makedepends = archiso-profiles-git
 	makedepends = polkit
 	provides = archlinux-ereleng
-	source = git+https://gitlab.archlinux.org/tallero/archiso-profiles
-	sha256sums = SKIP
 
 pkgname = archlinux

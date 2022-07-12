@@ -21,7 +21,7 @@ makedepends=("${_pkg}-${_variant}-git"
              # "devtools"
              "fakepkg"
              "git"
-             "mkinitcpio-${_pkg}-encryption-git"
+             "mkinitcpio-${_pkg}-encryption"
              "${_pkgbase}-git"
              "polkit")
 checkdepends=('shellcheck')
