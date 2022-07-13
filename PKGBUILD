@@ -34,7 +34,7 @@ package() {
   local _keys_iso="${pkgname}-keys-${pkgver}-x86_64.iso"
   local _profile_src="${_pkg_path}/configs/${profile}"
   local _profile="${srcdir}/${profile}"
-  cp -r "${_profile_src}" "${_profile}"
+  cp -r "${_profile_src}" "${srcdir}"
   cd "${_profile}" || exit
   mkdir -p work
   mkarchisorepo "fakepkg" "packages.extra"
