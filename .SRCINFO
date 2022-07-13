@@ -1,6 +1,6 @@
 pkgbase = archlinux
 	pkgdesc = Builds the Arch Linux install drive.
-	pkgver = 2022.07.12
+	pkgver = 2022.07.13
 	pkgrel = 1
 	url = https://gitlab.archlinux.org/archlinux/archiso/-/issues/156
 	arch = i686
