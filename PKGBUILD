@@ -2,7 +2,7 @@
 
 # shellcheck disable=SC2034
 _pkg="archiso"
-_variant="persistent"
+_variant="encryption"
 _distro="archlinux"
 _pkgbase="${_pkg}-profiles"
 profile="ereleng"
@@ -27,12 +27,12 @@ checkdepends=('shellcheck')
 
 # shellcheck disable=SC2154
 package() {
-  local _pkg_path="/usr/share/${_pkg}"
+  local _pkg_path="usr/share/${_pkg}"
   local _pkg_lib_path="/usr/lib/${_pkg}"
   local _dest="${pkgdir}/usr/share/${_distro}"
   local _iso="${pkgname}-${pkgver}-x86_64.iso"
   local _keys_iso="${pkgname}-keys-${pkgver}-x86_64.iso"
-  local _profile_src="${_pkg_path}/configs/${profile}"
+  local _profile_src="/${_pkg_path}/configs/${profile}"
   local _profile="${srcdir}/${profile}"
   cp -r "${_profile_src}" "${srcdir}"
   cd "${_profile}" || exit

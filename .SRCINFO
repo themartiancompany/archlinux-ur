@@ -1,6 +1,6 @@
 pkgbase = archlinux
 	pkgdesc = Builds the Arch Linux install drive.
-	pkgver = 2022.07.13
+	pkgver = 2022.07.24
 	pkgrel = 1
 	url = https://gitlab.archlinux.org/archlinux/archiso/-/issues/156
 	arch = i686
@@ -8,7 +8,7 @@ pkgbase = archlinux
 	arch = x86_64
 	license = AGPL3
 	checkdepends = shellcheck
-	makedepends = archiso-persistent-git
+	makedepends = archiso-encryption-git
 	makedepends = archiso-profiles-git
 	makedepends = cryptsetup-nested-cryptkey
 	makedepends = fakepkg
