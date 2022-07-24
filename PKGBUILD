@@ -2,7 +2,7 @@
 
 # shellcheck disable=SC2034
 _pkg="archiso"
-_variant="encryption"
+_variant="persistent"
 _distro="archlinux"
 _pkgbase="${_pkg}-profiles"
 profile="ereleng"
