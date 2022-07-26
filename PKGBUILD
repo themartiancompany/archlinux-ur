@@ -21,9 +21,17 @@ makedepends=("${_pkg}-${_variant}-git"
              "cryptsetup-nested-cryptkey"
              "fakepkg"
              "git"
+	     "gnupg"
              "mkinitcpio-${_pkg}-encryption"
              "polkit")
 checkdepends=('shellcheck')
+
+prepare() {
+  gpg_key=$(gpgconf --list-options gpg | awk -F: '$1 == "default-key" {print $10}')
+  if [ "${gpg_key}" == "" ]; then
+    echo "Generate a GPG key!" || exit
+  fi
+}
 
 # shellcheck disable=SC2154
 package() {
@@ -40,6 +48,7 @@ package() {
   mkarchisorepo "fakepkg" "packages.extra"
   install -d -m 0755 -- "${_dest}"
   pkexec mkarchiso -v \
+	           -g "${gpg_key}" \
 	           -o "${_dest}" \
 		   -w "${_profile}/work" \
                       "${_profile}"
